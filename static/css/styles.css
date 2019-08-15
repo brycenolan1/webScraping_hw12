@@ -1,0 +1,66 @@
+#mars-news > p {
+  font-size: smaller;
+}
+
+.featured-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.featured-image > img {
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.current-weather {
+  border-width: 1px;
+  border-style: solid;
+  border-color: gray;
+  overflow-wrap: break-word;
+  padding: 10px 20px 0px 10px;
+  font-size: smaller;
+}
+
+.current-weather > p {
+  padding-top: 10px;
+}
+
+.mars-facts-header {
+  padding: 20px 20px 10px 0px;
+}
+
+#data {
+    text-align: left;
+    font-size: smaller;
+    max-width: 100%;
+    height: auto;
+}
+
+.mars-hemi-headline {
+  text-align: center;
+  padding-top: 30px;
+  max-width: 100%;
+  height: auto;
+}
+
+.mars-hemi-images {
+  margin: 20px auto;
+  max-width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 250px 250px;
+  grid-row: auto auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.card-title {
+    font-size: 100%;
+}
+
+@media (max-width: 990px) {
+  .current-weather {
+    margin: 20px;
+  }

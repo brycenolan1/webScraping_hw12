@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Mission to Mars</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
+</head>
+
+<body>
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h1>Mission to Mars</h1>
+			<p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a>
+			</p>
+			<medium>(may take a few moments)</medium>
+		</div>
+		<div class="row" id="mars-news">
+			<div class="col-sm-12">
+				<h3 class="heading"> Latest Mars News </h3>
+				<strong> {{ mars_data.news_title }} </strong>
+				<p>{{ mars_data.news_paragraph }}</p>
+			</div>
+		</div>
+		<div class="row" id="image-weather-facts">
+			<div class="col-sm-12 col-lg-8">
+				<h3>Featured Mars Image</h3>
+				<figure class="featured-image">
+					<img src="{{ mars_data.featured_image }}" alt='mars data featured image' style='width:50%'>
+				</figure>
+			</div>
+			<div class="col-sm-12 col-lg-4">
+				<div class="current-weather"> <strong>Current Weather on Mars</strong>
+					<p>{{ mars_data.mars_weather }}</p>
+				</div>
+				<div class="mars-facts-header" id="mars-facts"> <strong>Mars Facts</strong>
+				</div>
+				<div class="data table-striped table-responsive" id="data"> <a> {{ mars_data.mars_table | safe }} </a>
+				</div>
+			</div>
+		</div>
+		<div class="row" id="mars-hemi-section">
+			<div class="col-sm-12">
+				<h3 class="mars-hemi-headline"> Mars Hemispheres </h3>
+				<hr>
+			</div>
+			<div class="mars-hemi-images">
+        {% for value in mars_data["hemisphere_images"] %}
+				<div class="card">
+					<img class="card-img-top" src='{{ value["img_url"] }}' }} alt="mars hemisphere image" style="width:100%">
+					<div class="card-body">
+						<h4 class="card-title"> {{ value["title"] }} </h4>
+					</div>
+        </div>
+        {% endfor %}
+      </div>
+		</div>
+</body>
+
+</html>
